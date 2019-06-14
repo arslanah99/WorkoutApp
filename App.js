@@ -4,6 +4,9 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+      header: null
+  }
   render() {
     return (
       <View style={styles.container}>
