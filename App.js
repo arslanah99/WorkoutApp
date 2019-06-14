@@ -22,10 +22,10 @@ class HomeScreen extends React.Component {
           secureTextEntry
         />
         <View style={styles.btnContainer}>
-          <TouchableOpacity style={styles.userbtn} onPress={() => alert("Login works")}>
+          <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Details')}>
             <Text style={styles.btnTxt}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.userbtn} onPress={() => alert("password works")}>
+          <TouchableOpacity style={styles.userbtn} onPress={() => alert("Signup works")}>
             <Text style={styles.btnTxt}>Signup</Text>
           </TouchableOpacity>
         </View>
@@ -36,6 +36,10 @@ class HomeScreen extends React.Component {
 
 
 class DetailsScreen extends React.Component {
+  static navigationOptions = {
+    title: 'IMPERIUM',
+    headerRight: <View />
+}
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -52,8 +56,19 @@ const RootStack = createStackNavigator(
     Details: DetailsScreen
   },
   {
-    initialRouteName: 'Home'
-  }
+    initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#f62459"
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        textAlign: 'center',
+        flex: 1
+      }
+    }
+  },
+
 )
 
 const AppContainer = createAppContainer(RootStack);
