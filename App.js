@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-
 class HomeScreen extends React.Component {
   static navigationOptions = {
       header: null
@@ -50,10 +49,26 @@ class DetailsScreen extends React.Component {
   }
 }
 
+class SignupScreen extends React.Component {
+  static navigationOptions = {
+    title: 'IMPERIUM',
+    headerRight: <View />
+}
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Signup Screen</Text>
+
+      </View>
+    );
+  }
+}
+
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Details: DetailsScreen
+    Details: DetailsScreen,
+    Signup: SignupScreen
   },
   {
     initialRouteName: 'Home',
