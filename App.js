@@ -24,7 +24,7 @@ class HomeScreen extends React.Component {
           <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Details')}>
             <Text style={styles.btnTxt}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.userbtn} onPress={() => alert("Signup works")}>
+          <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Signup')}>
             <Text style={styles.btnTxt}>Signup</Text>
           </TouchableOpacity>
         </View>
@@ -58,7 +58,24 @@ class SignupScreen extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Signup Screen</Text>
-
+        <Text style={styles.welcome}>Login to IMPERIUM</Text>
+        <TextInput 
+          style={styles.inputSignup}
+          placeholder="Username"
+        />
+        <TextInput 
+          style={styles.inputSignup}
+          placeholder="Password"
+          secureTextEntry
+        />
+        <View style={styles.btnContainer}>
+          <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Details')}>
+            <Text style={styles.btnTxt}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Signup')}>
+            <Text style={styles.btnTxt}>Signup</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -129,5 +146,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "90%"
+  },
+  inputSignup: {
+      margin: 15,
+      height: 40,
+      borderColor: 'black',
+      borderWidth: 1,
+      width: '75%'
   }
 });
