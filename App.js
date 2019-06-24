@@ -1,39 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import { createStackNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation';
-import Dashboard from './src/components/Dashboard'
-
-
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-      header: null
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar backgroundColor="#f62459" barStyle="light-content"/>
-        <Text style={styles.welcome}>Login to IMPERIUM</Text>
-        <TextInput 
-          style={styles.input}
-          placeholder="Username"
-        />
-        <TextInput 
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry
-        />
-        <View style={styles.btnContainer}>
-          <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Details')}>
-            <Text style={styles.btnTxt}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Signup')}>
-            <Text style={styles.btnTxt}>Signup</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
-}
+import LoginPage from './src/components/LoginPage'
 
 
 class DetailsScreen extends React.Component {
@@ -84,7 +52,7 @@ class SignupScreen extends React.Component {
 
 const MyDrawerNavigator = createDrawerNavigator({
   Home:{
-    screen:Dashboard
+    screen:LoginPage
   }
   // Home: HomeScreen,
   // Details: DetailsScreen,
@@ -93,7 +61,7 @@ const MyDrawerNavigator = createDrawerNavigator({
 
 const RootStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: LoginPage,
     Details: DetailsScreen,
     Signup: SignupScreen
   },
