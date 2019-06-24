@@ -1,69 +1,41 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import { createStackNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation';
-import LoginPage from './src/components/LoginPage'
+import LoginPage from './src/components/LoginPage';
+import SignupPage from './src/components/SignupPage';
+import DashboardPage from './src/components/Dashboard';
 
-
-class DetailsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'IMPERIUM',
-    headerRight: <View />
-}
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-      </View>
-    );
-  }
-}
-
-class SignupScreen extends React.Component {
-  static navigationOptions = {
-    title: 'IMPERIUM',
-    headerRight: <View />
-}
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Signup Screen</Text>
-        <Text style={styles.welcome}>Login to IMPERIUM</Text>
-        <TextInput 
-          style={styles.inputSignup}
-          placeholder="Username"
-        />
-        <TextInput 
-          style={styles.inputSignup}
-          placeholder="Password"
-          secureTextEntry
-        />
-        <View style={styles.btnContainer}>
-          <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Details')}>
-            <Text style={styles.btnTxt}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Signup')}>
-            <Text style={styles.btnTxt}>Signup</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
-}
+// class DetailsScreen extends React.Component {
+//   static navigationOptions = {
+//     title: 'IMPERIUM',
+//     headerRight: <View />
+// }
+//   render() {
+//     return (
+//       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//         <Text>Details Screen</Text>
+//       </View>
+//     );
+//   }
+// }
 
 const MyDrawerNavigator = createDrawerNavigator({
-  Home:{
+  Login:{
     screen:LoginPage
+  }, 
+  Signup: {
+    screen:SignupPage
+  },
+  Details: {
+    screen:DashboardPage
   }
-  // Home: HomeScreen,
-  // Details: DetailsScreen,
-  // Signup: SignupScreen
 })
 
 const RootStack = createStackNavigator(
   {
     Home: LoginPage,
-    Details: DetailsScreen,
-    Signup: SignupScreen
+    Details: DashboardPage,
+    Signup: SignupPage
   },
   {
     initialRouteName: 'Home',

@@ -3,35 +3,37 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from '
 
 export default class Dashboard extends Component {
     static navigationOptions = {
-        title: 'Login Page',
-        header: null
+        title: 'Signup Page',
+        headerRight: <View />
     }
-    render() {
-      return (
-        <View style={styles.container}>
-          <StatusBar backgroundColor="#f62459" barStyle="light-content"/>
-          <Text style={styles.welcome}>Login to IMPERIUM</Text>
-          <TextInput 
-            style={styles.input}
-            placeholder="Username"
-          />
-          <TextInput 
-            style={styles.input}
-            placeholder="Password"
-            secureTextEntry
-          />
-          <View style={styles.btnContainer}>
-            <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Details')}>
-              <Text style={styles.btnTxt}>Login</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Signup')}>
-              <Text style={styles.btnTxt}>Signup</Text>
-            </TouchableOpacity>
+      render() {
+        return (
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Signup Screen</Text>
+            <Text style={styles.welcome}>Login to IMPERIUM</Text>
+            <TextInput 
+              style={styles.inputSignup}
+              placeholder="Username"
+            />
+            <TextInput 
+              style={styles.inputSignup}
+              placeholder="Password"
+              secureTextEntry
+            />
+            <View style={styles.btnContainer}>
+              <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Details')}>
+                <Text style={styles.btnTxt}>Login</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.userbtn} onPress={() => this.props.navigation.navigate('Signup')}>
+                <Text style={styles.btnTxt}>Signup</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-      );
-    }
+        );
+      }
 }
+
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
