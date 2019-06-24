@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation';
+import Dashboard from './src/components/Dashboard'
+
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -43,7 +45,6 @@ class DetailsScreen extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Details Screen</Text>
-
       </View>
     );
   }
@@ -81,6 +82,15 @@ class SignupScreen extends React.Component {
   }
 }
 
+const MyDrawerNavigator = createDrawerNavigator({
+  Home:{
+    screen:Dashboard
+  }
+  // Home: HomeScreen,
+  // Details: DetailsScreen,
+  // Signup: SignupScreen
+})
+
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -103,13 +113,15 @@ const RootStack = createStackNavigator(
 
 )
 
+const MyApp = createAppContainer(MyDrawerNavigator);
 const AppContainer = createAppContainer(RootStack);
 
 type Props = {};
-export default class App extends React.Component<Props>{
+export default class App extends React.Component{
   render(){
     return(
-      <AppContainer />
+      <AppContainer />,
+      <MyApp />
     );
   }
 }
