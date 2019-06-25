@@ -13,8 +13,6 @@ export default class Dashboard extends Component {
     title: "Signup Page",
     headerRight: <View />,
     drawerIcon:(
-      // <Image source={require('../assets/icon.png')}
-      // style={{height: 24 , width: 24 }} />
       <Ionicons name="ios-checkmark" size={22} color="green" />
     )
   };
