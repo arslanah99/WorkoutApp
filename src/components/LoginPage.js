@@ -7,11 +7,18 @@ import {
   TouchableOpacity,
   StatusBar
 } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
+
 
 export default class Dashboard extends Component {
   static navigationOptions = {
     title: "Login Page",
-    header: null
+    header: null,
+    drawerIcon:(
+      // <Image source={require('../assets/icon.png')}
+      // style={{height: 24 , width: 24 }} />
+      <Ionicons name="md-log-in" size={22} color="green" />
+    )
   };
   render() {
     return (

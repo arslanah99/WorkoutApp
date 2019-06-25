@@ -15,7 +15,7 @@ export default class Dashboard extends Component {
     drawerIcon:(
       // <Image source={require('../assets/icon.png')}
       // style={{height: 24 , width: 24 }} />
-      <Ionicons name="ios-calendar" size={22} color="green" />
+      <Ionicons name="ios-checkmark" size={22} color="green" />
     )
   };
   render() {
