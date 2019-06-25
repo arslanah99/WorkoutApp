@@ -9,13 +9,13 @@ export default class Dashboard extends Component {
         drawerIcon:(
           // <Image source={require('../assets/icon.png')}
           // style={{height: 24 , width: 24 }} />
-          <Ionicons name="md-camera" size={22} color="green" />
+          <Ionicons name="md-calendar" size={22} color="green" />
         )
     }
       render() {
         return (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Details Screen</Text>
+            <Text>Workout Calendar Screen</Text>
           </View>
         );
       }
