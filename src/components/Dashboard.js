@@ -56,7 +56,13 @@ constructor(props){
               style={styles.addButton}
               onPress={this.onPress}
             >
-         <Text style={{color: 'white'}}> Touch Here </Text>
+         <Text style={{color: 'white'}}> Add Lift </Text>
+       </TouchableOpacity>
+       <TouchableOpacity
+              style={styles.completeButton}
+              onPress={this.onPress}
+            >
+         <Text style={{color: 'white'}}> Complete Workout </Text>
        </TouchableOpacity>
           </View>
         );
@@ -74,11 +80,14 @@ const styles = StyleSheet.create({
       width: 217,
       height: 31,
       right: -50,
-      top: 560,
+      top: 580,
+      fontSize: 26,
+      lineHeight: 32
     },
     addButton: {
       position: 'absolute',
-      left: 242,
+      left: 230,
+      right: 12,
       top: 576,
       backgroundColor: '#FF473A',
       borderColor: '#FFFFFF',
@@ -89,7 +98,22 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       overflow: 'hidden',
       padding: 12,
-      textAlign:'center',
+      alignItems: 'center',
+    },
+    completeButton: {
+      position: 'absolute',
+      left: 10,
+      top: 576,
+      backgroundColor: '#FF473A',
+      borderColor: '#FFFFFF',
+      borderWidth: 1,
+      borderRadius: 6,
+      color: '#FFFFFF',
+      fontSize: 12,
+      fontWeight: 'bold',
+      overflow: 'hidden',
+      padding: 12,
+      alignItems: 'center',
     }
   });
   
