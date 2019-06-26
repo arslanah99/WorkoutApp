@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 export default class Dashboard extends Component {
     static navigationOptions = {
@@ -14,8 +15,19 @@ export default class Dashboard extends Component {
     }
       render() {
         return (
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Graph Screen</Text>
+          <View style={{ paddingTop: 5}}>
+            <CalendarList
+              // Callback which gets executed when visible months change in scroll view. Default = undefined
+              onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
+              // Max amount of months allowed to scroll to the past. Default = 50
+              pastScrollRange={50}
+              // Max amount of months allowed to scroll to the future. Default = 50
+              futureScrollRange={50}
+              // Enable or disable scrolling of calendar list
+              scrollEnabled={true}
+              // Enable or disable vertical scroll indicator. Default = false
+              showScrollIndicator={true}
+              />
           </View>
         );
       }
@@ -24,7 +36,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#f62459',
-      alignItems: 'center',
+      alignItems: 'center', 
       justifyContent: 'center',
     },
     welcome: {
