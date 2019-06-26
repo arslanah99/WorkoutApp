@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
 
+
+
 export default class Dashboard extends Component {
-    static navigationOptions = {
+constructor(props){
+  super(props);
+  this.state = {
+    date: ''
+  }
+}
+
+  componentDidMount(){
+    var that = this;
+    var date = new Date().getDate(); //Current Date
+    var month = new Date().getMonth() + 1; //Current Month
+    var year = new Date().getFullYear(); //Current Year
+    that.setState({
+      date:
+        date + '/' + month + '/' + year
+    })
+  }
+
+  static navigationOptions = {
         title: 'Todays Workout',
         headerRight: <View />,
         drawerIcon:(
@@ -27,6 +47,17 @@ export default class Dashboard extends Component {
             <View>
               <Text>Dashboard Screen</Text>
             </View>
+            <View>
+              <Text style={styles.date}>
+                {this.state.date}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.addButton}
+              onPress={this.onPress}
+            >
+         <Text style={{color: 'white'}}> Touch Here </Text>
+       </TouchableOpacity>
           </View>
         );
       }
@@ -38,38 +69,27 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    welcome: {
-      fontSize: 30,
-      textAlign: 'center',
-      margin: 10,
-      color: '#fff',
+    date: {
+      position: 'absolute',
+      width: 217,
+      height: 31,
+      right: -50,
+      top: 560,
     },
-    input: {
-      width: '90%',
-      backgroundColor: "#fff",
-      padding: 15,
-      marginBottom: 10
-    },
-    userbtn: {
-      backgroundColor: "#fff68f",
-      padding: 15,
-      width: "45%"
-    },
-    btnTxt: {
-      fontSize: 18,
-      textAlign: "center"
-    },
-    btnContainer: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      width: "90%"
-    },
-    inputSignup: {
-        margin: 15,
-        height: 40,
-        borderColor: 'black',
-        borderWidth: 1,
-        width: '75%'
+    addButton: {
+      position: 'absolute',
+      left: 242,
+      top: 576,
+      backgroundColor: '#FF473A',
+      borderColor: '#FFFFFF',
+      borderWidth: 1,
+      borderRadius: 6,
+      color: '#FFFFFF',
+      fontSize: 12,
+      fontWeight: 'bold',
+      overflow: 'hidden',
+      padding: 12,
+      textAlign:'center',
     }
   });
   
