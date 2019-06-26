@@ -5,7 +5,7 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 export default class Dashboard extends Component {
     static navigationOptions = {
-        title: 'Graph Progress',
+        title: 'Calendar',
         headerRight: <View />,
         drawerIcon:(
           // <Image source={require('../assets/icon.png')}
