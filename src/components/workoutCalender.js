@@ -19,7 +19,7 @@ export default class Dashboard extends Component {
           <View>
             <Header 
           leftComponent={{ icon: 'menu', color: '#fff' }}
-          centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
+          centerComponent={{ text: 'Calendar', style: { color: '#fff' } }}
           rightComponent={{ icon: 'home', color: '#fff' }}
           />
             <CalendarList

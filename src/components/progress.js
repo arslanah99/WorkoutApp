@@ -19,7 +19,7 @@ export default class Dashboard extends Component {
           <View style={{ flex: 1, alignItems: 'center'}}>
             <Header 
           leftComponent={{ icon: 'menu', color: '#fff' }}
-          centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
+          centerComponent={{ text: 'Progress Photos', style: { color: '#fff' } }}
           rightComponent={{ icon: 'home', color: '#fff' }}
           />
             <View>
