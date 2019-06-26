@@ -17,10 +17,13 @@ export default class Dashboard extends Component {
       render() {
         return (
           <View>
-            <Header 
-          leftComponent={{ icon: 'menu', color: '#fff' }}
-          centerComponent={{ text: 'Calendar', style: { color: '#fff' } }}
-          rightComponent={{ icon: 'home', color: '#fff' }}
+          <Header
+          leftComponent={{ icon: 'menu', color: 'black' }}
+          centerComponent={{ text: 'Calendar', style: { color: '#FF473A'} }}
+          rightComponent={{ text: 'IMPERIUM', color: '#FF0000' }}
+          containerStyle={{
+            backgroundColor: '#ffffff'
+          }}
           />
             <CalendarList
               // Callback which gets executed when visible months change in scroll view. Default = undefined
