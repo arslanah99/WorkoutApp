@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import { Header } from 'react-native-elements';
 
 export default class Dashboard extends Component {
     static navigationOptions = {
@@ -15,7 +16,12 @@ export default class Dashboard extends Component {
     }
       render() {
         return (
-          <View style={{ paddingTop: 5}}>
+          <View>
+            <Header 
+          leftComponent={{ icon: 'menu', color: '#fff' }}
+          centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
+          rightComponent={{ icon: 'home', color: '#fff' }}
+          />
             <CalendarList
               // Callback which gets executed when visible months change in scroll view. Default = undefined
               onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}

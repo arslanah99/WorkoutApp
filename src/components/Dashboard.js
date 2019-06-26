@@ -15,14 +15,14 @@ export default class Dashboard extends Component {
     }
       render() {
         return (
-          <View>
+          <View style={{ flex: 1, alignItems: 'center'}}>
             <Header 
           leftComponent={{ icon: 'menu', color: '#fff' }}
           centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
           rightComponent={{ icon: 'home', color: '#fff' }}
           />
             <View>
-              <Text>Details Screen</Text>
+              <Text>Dashboard Screen</Text>
             </View>
           </View>
         );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Header } from 'react-native-elements';
+
 
 export default class Dashboard extends Component {
     static navigationOptions = {
@@ -14,8 +16,15 @@ export default class Dashboard extends Component {
     }
       render() {
         return (
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Progress Screen</Text>
+          <View style={{ flex: 1, alignItems: 'center'}}>
+            <Header 
+          leftComponent={{ icon: 'menu', color: '#fff' }}
+          centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
+          rightComponent={{ icon: 'home', color: '#fff' }}
+          />
+            <View>
+              <Text>Progress Photo Screen</Text>
+            </View>
           </View>
         );
       }
