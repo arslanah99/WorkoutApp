@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
-
+import  { LineChart, Grid } from 'react-native-svg-charts'
 
 export default class Dashboard extends Component {
     static navigationOptions = {
@@ -15,7 +15,11 @@ export default class Dashboard extends Component {
         )
     }
       render() {
-        return (
+
+        const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ];
+
+        
+        return ( 
           <View style={{ flex: 1, alignItems: 'center'}}>
           <Header
           leftComponent={{ icon: 'menu', color: 'black' }}
@@ -28,6 +32,14 @@ export default class Dashboard extends Component {
             <View>
               <Text>Graph Screen</Text>
             </View>
+            <LineChart
+                style={{ height: 200 }}
+                data={ data }
+                svg={{ stroke: 'rgb(134, 65, 244)' }}
+                contentInset={{ top: 20, bottom: 20 }}
+            >
+                <Grid/>
+            </LineChart>
           </View>
         );
       }
