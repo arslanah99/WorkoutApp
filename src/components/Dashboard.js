@@ -9,7 +9,8 @@ export default class Dashboard extends Component {
 constructor(props){
   super(props);
   this.state = {
-    date: ''
+    date: '',
+    content: true
   }
 }
 
@@ -22,6 +23,10 @@ constructor(props){
       date:
         date + '/' + month + '/' + year
     })
+  }
+
+  componentHideAndShow = () => {
+    this.setState(previousState => ({ content: !previousState.content}))
   }
 
   static navigationOptions = {
@@ -52,9 +57,12 @@ constructor(props){
                 {this.state.date}
               </Text>
             </View>
+            {
+              this.state.content ? <Text>THIS IS THE BOX TO ADD A LIFT</Text> : null
+            }
             <TouchableOpacity
               style={styles.addButton}
-              onPress={this.onPress}
+              onPress={this.componentHideAndShow}
             >
          <Text style={{color: 'white'}}> Add Lift </Text>
        </TouchableOpacity>
