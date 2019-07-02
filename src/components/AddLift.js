@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
 import styled from 'styled-components';
 
 
 const Container=styled.View`
-    width: 318px;
+    width: 418px;
     height: 127px;
-    left: 25px;
+    left: 40px;
     top 75px;
+    align
 `
 const Title=styled.Text`
 font-size:20px;
@@ -48,17 +49,77 @@ constructor(props){
               this.state.content ?
               <Container>
              <Item >
-             <Title >Item number 1</Title>
+            <TextInput
+             style={{ borderColor: 'gray', borderWidth: 1, }}
+             maxLength = {2} placeholder=" Input Sets, Reps, Exercise Name, and Lbs."/>
              </Item>
-
-      </Container> : null
+             <TouchableOpacity
+              style={styles.cancelButton}
+              onPress={this.componentHideAndShow}
+            >
+         <Text style={{color: 'white'}}> Cancel Lift </Text>
+       </TouchableOpacity>
+       <TouchableOpacity
+              style={styles.addButton}
+              
+            >
+         <Text style={{color: 'white'}}> Add Lift </Text>
+       </TouchableOpacity>
+      </Container>
+       : null
             }
+
             </View>
-           
         );
       }
 }
 const styles = StyleSheet.create({
-
+    container: {
+      flex: 1,
+      backgroundColor: '#f62459',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    date: {
+      position: 'absolute',
+      width: 217,
+      height: 31,
+      right: -50,
+      top: 580,
+      fontSize: 26,
+      lineHeight: 32
+    },
+    cancelButton: {
+      position: 'absolute',
+      left: 30,
+      right: 252,
+      top: 66,
+      backgroundColor: '#FF473A',
+      borderColor: '#FFFFFF',
+      borderWidth: 1,
+      borderRadius: 6,
+      color: '#FFFFFF',
+      fontSize: 12,
+      fontWeight: 'bold',
+      overflow: 'hidden',
+      padding: 12,
+      alignItems: 'center',
+    },
+    addButton: {
+        position: 'absolute',
+        left: 190,
+        right: 122,
+        top: 66,
+        backgroundColor: '#FF473A',
+        borderColor: '#FFFFFF',
+        borderWidth: 1,
+        borderRadius: 6,
+        color: '#FFFFFF',
+        fontSize: 12,
+        fontWeight: 'bold',
+        overflow: 'hidden',
+        padding: 12,
+        alignItems: 'center',
+    }
   });
   
