@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
-
+import AddLiftToggle  from './AddLift'
 
 
 export default class Dashboard extends Component {
@@ -58,7 +58,7 @@ constructor(props){
               </Text>
             </View>
             {
-              this.state.content ? <Text>THIS IS THE BOX TO ADD A LIFT</Text> : null
+              this.state.content ? <AddLiftToggle /> : null
             }
             <TouchableOpacity
               style={styles.addButton}
