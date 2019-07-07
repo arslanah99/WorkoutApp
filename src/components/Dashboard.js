@@ -29,21 +29,14 @@ constructor(props){
   }
 
   inputWorkout = (workout) => {
-    // console.log(workout)
-    this.setState({
-      inputingWorkout: workout
-    })
-  }
-
-  saveWorkout = () => {
     let workoutArray = this.state.workoutArray
-    workoutArray.push(this.state.inputingWorkout);
+    workoutArray.push(workout);
     this.setState({
       workoutArray: workoutArray
     })
-
-    console.log(list)
+    // console.log(workout)
   }
+
 
 
   componentHideAndShow = () => {
@@ -61,10 +54,9 @@ constructor(props){
     }
       render() {
         let workoutFullArray = this.state.workoutArray;
-        console.log(workoutFullArray)
-        const loopOverArray = workoutFullArray.map((array) => {
-          <View><Text>{array}</Text></View>
-        })
+        const loopOverArray = workoutFullArray.map((array, index) => 
+          <Text key={index}>{array}</Text>
+        )
         return (
           <View style={{ flex: 1, alignItems: 'center'}}>
           <Header
@@ -84,7 +76,7 @@ constructor(props){
               </Text>
             </View>
             <View>
-              <Text>{loopOverArray}</Text>
+              {loopOverArray}
             </View>
             {
               this.state.content ? <View><AddLiftToggle inputWorkout={this.inputWorkout}/></View>  : null
