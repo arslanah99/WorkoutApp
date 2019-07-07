@@ -11,7 +11,8 @@ constructor(props){
   this.state = {
     date: '',
     content: true,
-    inputingWorkout: ''
+    inputingWorkout: '',
+    workoutArray: []
   }
 }
 
@@ -28,10 +29,20 @@ constructor(props){
   }
 
   inputWorkout = (workout) => {
-    console.log(workout)
+    // console.log(workout)
     this.setState({
       inputingWorkout: workout
     })
+  }
+
+  saveWorkout = () => {
+    let workoutArray = this.state.workoutArray
+    workoutArray.push(this.state.inputingWorkout);
+    this.setState({
+      workoutArray: workoutArray
+    })
+
+    console.log(list)
   }
 
 
@@ -49,6 +60,11 @@ constructor(props){
         )
     }
       render() {
+        let workoutFullArray = this.state.workoutArray;
+        console.log(workoutFullArray)
+        const loopOverArray = workoutFullArray.map((array) => {
+          <View><Text>{array}</Text></View>
+        })
         return (
           <View style={{ flex: 1, alignItems: 'center'}}>
           <Header
@@ -68,10 +84,10 @@ constructor(props){
               </Text>
             </View>
             <View>
-              <Text>{this.state.inputingWorkout}</Text>
+              <Text>{loopOverArray}</Text>
             </View>
             {
-              this.state.content ? <AddLiftToggle inputWorkout={this.inputWorkout}/> : null
+              this.state.content ? <View><AddLiftToggle inputWorkout={this.inputWorkout}/></View>  : null
             }
             <TouchableOpacity
               style={styles.addButton}
@@ -85,7 +101,6 @@ constructor(props){
             >
          <Text style={{color: 'white'}}> Complete Workout </Text>
        </TouchableOpacity>
-       
           </View>
         );
       }
