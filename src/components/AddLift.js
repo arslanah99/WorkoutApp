@@ -42,7 +42,10 @@ constructor(props){
 
   buttonClickListener = () => {
     const { liftInputContent } = this.state;
-    console.log(liftInputContent);
+    this.props.inputWorkout(liftInputContent)
+    this.setState({
+      liftInputContent:liftInputContent
+    })
   }
 
   componentHideAndShow = () => {

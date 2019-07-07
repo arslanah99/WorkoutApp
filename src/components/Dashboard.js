@@ -10,9 +10,11 @@ constructor(props){
   super(props);
   this.state = {
     date: '',
-    content: true
+    content: true,
+    inputingWorkout: ''
   }
 }
+
 
   componentDidMount(){
     var that = this;
@@ -24,6 +26,14 @@ constructor(props){
         date + '/' + month + '/' + year
     })
   }
+
+  inputWorkout = (workout) => {
+    console.log(workout)
+    this.setState({
+      inputingWorkout: workout
+    })
+  }
+
 
   componentHideAndShow = () => {
     this.setState(previousState => ({ content: !previousState.content}))
@@ -57,8 +67,11 @@ constructor(props){
                 {this.state.date}
               </Text>
             </View>
+            <View>
+              <Text>{this.state.inputingWorkout}</Text>
+            </View>
             {
-              this.state.content ? <AddLiftToggle /> : null
+              this.state.content ? <AddLiftToggle inputWorkout={this.inputWorkout}/> : null
             }
             <TouchableOpacity
               style={styles.addButton}
@@ -72,6 +85,7 @@ constructor(props){
             >
          <Text style={{color: 'white'}}> Complete Workout </Text>
        </TouchableOpacity>
+       
           </View>
         );
       }
