@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
 import AddLiftToggle  from './AddLift'
@@ -37,7 +37,12 @@ constructor(props){
     // console.log(workout)
   }
 
-
+  alerts = () => {
+    Alert.alert(
+      'YAY YOU DID IT',
+      "Pat yourself on the back"
+    )
+  }
 
   componentHideAndShow = () => {
     this.setState(previousState => ({ content: !previousState.content}))
@@ -91,7 +96,7 @@ constructor(props){
               style={styles.completeButton}
               onPress={this.onPress}
             >
-         <Text style={{color: 'white'}}> Complete Workout </Text>
+         <Text style={{color: 'white'}} onPress={this.alerts}> Complete Workout </Text>
        </TouchableOpacity>
           </View>
         );
