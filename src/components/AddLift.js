@@ -34,9 +34,16 @@ export default class Addlift extends Component {
 constructor(props){
   super(props);
   this.state = {
-    content: true
+    content: true,
+    liftInputContent: ""
   }
 }
+
+
+  buttonClickListener = () => {
+    const { liftInputContent } = this.state;
+    console.log(liftInputContent);
+  }
 
   componentHideAndShow = () => {
     this.setState(previousState => ({ content: !previousState.content}))
@@ -51,7 +58,9 @@ constructor(props){
              <Item >
             <TextInput
              style={{ borderColor: 'gray', borderWidth: 1, }}
-             maxLength = {2} placeholder=" Input Sets, Reps, Exercise Name, and Lbs."/>
+              placeholder=" Input Sets, Reps, Exercise Name, and Lbs."
+             onChangeText={(liftInputContent) => this.setState({liftInputContent})}
+             />
              </Item>
              <TouchableOpacity
               style={styles.cancelButton}
@@ -61,8 +70,9 @@ constructor(props){
        </TouchableOpacity>
        <TouchableOpacity
               style={styles.addButton}
-              
+              onPress={this.buttonClickListener}
             >
+                
          <Text style={{color: 'white'}}> Add Lift </Text>
        </TouchableOpacity>
       </Container>
