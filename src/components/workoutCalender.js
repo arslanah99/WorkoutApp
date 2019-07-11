@@ -36,6 +36,21 @@ export default class Dashboard extends Component {
               scrollEnabled={true}
               // Enable or disable vertical scroll indicator. Default = false
               showScrollIndicator={true}
+              // Mark specific dates
+              markingType={'custom'}
+              markedDates={{
+                '2019-07-12': {
+                  customStyles: {
+                    container: {
+                      backgroundColor: 'green'
+                    },
+                    text: {
+                      color: 'black',
+                      fontWeight: 'bold'
+                    }
+                  }
+                }
+              }}
               />
           </View>
         );

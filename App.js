@@ -14,7 +14,7 @@ export default class App extends React.Component {
   }
 }
 
-
+      
 const MyDrawerNavigator = createDrawerNavigator({
   Login: {
     screen: LoginPage
