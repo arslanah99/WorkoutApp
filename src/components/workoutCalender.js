@@ -14,6 +14,15 @@ export default class Dashboard extends Component {
           <Ionicons name="md-camera" size={22} color="green" />
         )
     }
+    
+    createCalendarBloops = () => {
+      for(let i = 1; i <= 31; i ++){
+        if(i % 2 === 0){
+          console.log((i).toString())
+        }
+      }
+    }
+
       render() {
         return (
           <View>
