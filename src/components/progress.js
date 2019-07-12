@@ -36,7 +36,21 @@ export default class Dashboard extends Component {
         //button to render and create camera
         const { hasCameraPermission } = this.state;
         if(hasCameraPermission === null){
-          return <View />
+          return (
+            <View style={{ flex: 1, alignItems: 'center'}}>
+              <Header
+            leftComponent={{ icon: 'menu', color: 'black' }}
+            centerComponent={{ text: 'Progress Photos', style: { color: '#FF473A'} }}
+            rightComponent={{ text: 'IMPERIUM', color: '#FF0000' }}
+            containerStyle={{
+              backgroundColor: '#ffffff'
+            }}
+            />
+              <View>
+                <Text>Progress Photo Screen</Text>
+              </View>
+            </View>
+          );
         } else if (hasCameraPermission === false) {
           return <Text>No access to camera</Text>;
         } else {
@@ -65,6 +79,18 @@ export default class Dashboard extends Component {
                   }}>
                   <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
                 </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    flex: 0.2,
+                    alignSelf: 'flex-end',
+                    alignItems: 'center',
+                  }}                
+                  onPress={
+                    hasCameraPermission === null
+                  }
+                >
+                  <Text>Go back</Text>
+                </TouchableOpacity>
               </View>
             </Camera>
           </View>
@@ -72,21 +98,7 @@ export default class Dashboard extends Component {
         }
 
 
-        return (
-          <View style={{ flex: 1, alignItems: 'center'}}>
-            <Header
-          leftComponent={{ icon: 'menu', color: 'black' }}
-          centerComponent={{ text: 'Progress Photos', style: { color: '#FF473A'} }}
-          rightComponent={{ text: 'IMPERIUM', color: '#FF0000' }}
-          containerStyle={{
-            backgroundColor: '#ffffff'
-          }}
-          />
-            <View>
-              <Text>Progress Photo Screen</Text>
-            </View>
-          </View>
-        );
+       
       }
 }
 const styles = StyleSheet.create({
